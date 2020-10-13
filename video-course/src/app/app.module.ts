@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
-import { CourseComponent } from './components/course/course.component';
+import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumbs.component';
+import { CourseListComponent } from './shared/components/course-list/course-list.component';
+import { CoursePageComponent } from './course/pages/course-page/course-page.component';
+import { CourseItemComponent } from './shared/components/course-item/course-item.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { CourseComponent } from './components/course/course.component';
     HeaderComponent,
     FooterComponent,
     BreadcrumbsComponent,
-    CourseComponent
+    CourseListComponent,
+    CoursePageComponent,
+    CourseItemComponent
   ],
   imports: [
     BrowserModule,
