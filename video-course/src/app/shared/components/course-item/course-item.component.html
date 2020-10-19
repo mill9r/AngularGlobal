@@ -1,1 +1,25 @@
-<p>course-item works!</p>
+<div gdAreas="title meta-data| description modify-course">
+    <h2 gdArea="title">
+      {{ headerTitle }}
+    </h2>
+    <div
+      gdArea="meta-data"
+      fxLayout="row"
+    >
+      <app-meta-data
+        [icon]="icons.vs_clock"
+        [message]="courseDuration"
+      ></app-meta-data>
+      <app-meta-data
+        [icon]="icons.vs_calendar"
+        [message]="publication"
+      ></app-meta-data>
+    </div>
+    <p gdArea="description">
+      {{ description }}
+    </p>
+    <div gdArea="modify-course">
+      <button mat-raised-button color="warn">Edit</button>
+      <button mat-raised-button color="warn">Deleted</button>
+    </div>
+</div>
