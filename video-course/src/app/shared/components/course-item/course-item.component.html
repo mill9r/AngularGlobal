@@ -1,10 +1,15 @@
-<div gdAreas="title meta-data| description modify-course">
+<div
+  class="course-item"
+  gdAreas="title meta-data| description modify-course"
+  gdGap="0.5rem"
+>
     <h2 gdArea="title">
       {{ headerTitle }}
     </h2>
     <div
       gdArea="meta-data"
       fxLayout="row"
+      fxLayoutGap="0.5rem"
     >
       <app-meta-data
         [icon]="icons.vs_clock"
@@ -18,7 +23,11 @@
     <p gdArea="description">
       {{ description }}
     </p>
-    <div gdArea="modify-course">
+    <div
+      gdArea="modify-course"
+      fxLayoutAlign="center start"
+      fxLayoutGap="1rem"
+    >
       <button mat-raised-button color="warn">Edit</button>
       <button mat-raised-button color="warn">Deleted</button>
     </div>
