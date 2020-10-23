@@ -1,4 +1,5 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+
 import {icons} from "../../../material/constants/icons";
 import {Icon} from "../../models";
 
@@ -13,6 +14,9 @@ export class CourseItemComponent {
   @Input() public description: string;
   @Input() public courseDuration: string;
   @Input() public publication: string;
+
+  @Output() public deleteCourse: EventEmitter<boolean> = new EventEmitter();
+  @Output() public editCourse: EventEmitter<void> = new EventEmitter();
 
   public icons: Icon = icons;
 }

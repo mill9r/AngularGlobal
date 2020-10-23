@@ -28,7 +28,15 @@
       fxLayoutAlign="center start"
       fxLayoutGap="1rem"
     >
-      <button mat-raised-button color="warn">Edit</button>
-      <button mat-raised-button color="warn">Deleted</button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="editCourse.emit()"
+      >Edit</button>
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="deleteCourse.emit()"
+      >Deleted</button>
     </div>
 </div>

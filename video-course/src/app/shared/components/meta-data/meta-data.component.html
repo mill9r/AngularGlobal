@@ -2,6 +2,13 @@
   fxLayout="row"
   fxLayoutAlign="center"
 >
-  <mat-icon aria-hidden="false" aria-label="iconAriaDescription">{{ icon }}</mat-icon>
-  <span class="message">{{ message }}</span>
+  <mat-icon
+    [ngClass]="{'white-icon': isWhite}"
+    aria-hidden="false"
+    aria-label="iconAriaDescription"
+  >{{ icon }}</mat-icon>
+  <span
+    [ngClass]="{'white-icon': isWhite}"
+    class="message"
+  >{{ message }}</span>
 </div>
