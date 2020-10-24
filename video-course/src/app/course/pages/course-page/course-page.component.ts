@@ -8,12 +8,14 @@ import {CourseDescription} from "../../../shared/models";
 })
 export class CoursePageComponent implements OnInit {
   public courses: CourseDescription[];
+  public searchInput: string;
 
   constructor() { }
 
   public ngOnInit(): void {
     this.courses = [
       {
+        courseId: 1,
         courseTitle: 'Video Course 1. Name tag',
         courserDescription: `Learn about where you can find course descriptions,
          what information they include, how they work, and details about various
@@ -25,6 +27,7 @@ export class CoursePageComponent implements OnInit {
         publication: '08/28/2020'
       },
       {
+        courseId: 2,
         courseTitle: 'Video Course 1. Name tag',
         courserDescription: `Learn about where you can find course descriptions,
          what information they include, how they work, and details about various
@@ -36,6 +39,7 @@ export class CoursePageComponent implements OnInit {
         publication: '08/28/2020'
       },
       {
+        courseId: 3,
         courseTitle: 'Video Course 1. Name tag',
         courserDescription: `Learn about where you can find course descriptions,
          what information they include, how they work, and details about various
@@ -47,6 +51,14 @@ export class CoursePageComponent implements OnInit {
         publication: '08/28/2020'
       },
     ]
+  }
+
+  public executeCourseSearch(input: string): void {
+    console.log(input)
+  }
+
+  public loadMoreCourses(): void {
+    console.log('loadMoreCourses')
   }
 
 }

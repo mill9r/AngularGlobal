@@ -13,6 +13,7 @@ import { CoursePageComponent } from './course/pages/course-page/course-page.comp
 import { CourseItemComponent } from './shared/components/course-item/course-item.component';
 import { MetaDataComponent } from './shared/components/meta-data/meta-data.component';
 import {MaterialModule} from "./material/material.module";
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {MaterialModule} from "./material/material.module";
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

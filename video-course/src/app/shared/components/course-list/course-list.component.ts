@@ -10,5 +10,11 @@ import {CourseDescription} from '../../models';
 export class CourseListComponent {
   @Input() public courses: CourseDescription[]
 
-  constructor() {}
+  public editCourse(courseId: number): void {
+    console.log('Edit course:',courseId)
+  }
+
+  public deleteCourse(courseId: number): void {
+    console.log('Delete course:',courseId)
+  }
 }

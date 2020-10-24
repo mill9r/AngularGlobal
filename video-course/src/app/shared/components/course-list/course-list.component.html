@@ -4,5 +4,7 @@
     [description]="course.courserDescription"
     [courseDuration]="course.courseDuration"
     [publication]="course.publication"
+    (editCourse)="editCourse(course.courseId)"
+    (deleteCourse)="deleteCourse(course.courseId)"
   ></app-course-item>
 </div>

@@ -1,2 +1,36 @@
+<app-header></app-header>
+<app-breadcrumbs></app-breadcrumbs>
+<div class="course-page">
+  <div
+    class="search"
+    fxLayoutGap="0.5rem"
+  >
+    <input
+      class="search__input"
+      type="text"
+      placeholder="Type to search"
+      [(ngModel)]="searchInput"
+    >
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="executeCourseSearch(searchInput)"
+    >Search</button>
+  </div>
+  <div fxLayoutAlign="end center">
+    <button mat-raised-button color="primary">Add course</button>
+  </div>
+  <app-course-list [courses]="courses"></app-course-list>
+  <div
+    class="load-more"
+    fxLayoutAlign="center center"
+  >
+    <button
+      mat-button
+      class="load-more__button"
+      (click)="loadMoreCourses()"
+    >Load more</button>
+  </div>
+</div>
+<app-footer></app-footer>
 
-<app-course-list [courses]="courses"></app-course-list>
