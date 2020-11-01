@@ -16,10 +16,16 @@ describe('MetaDataComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MetaDataComponent);
     component = fixture.componentInstance;
+    component.message = "text";
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should paint correct layout according to input', () => {
+    const hostElement = fixture.nativeElement;
+    expect(hostElement.querySelector('span').innerText).toBe('text');
+  })
 });
