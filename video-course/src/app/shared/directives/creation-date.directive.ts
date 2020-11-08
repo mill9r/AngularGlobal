@@ -12,7 +12,7 @@ export class CreationDateDirective implements OnInit {
     const date = new Date(this.creationDate)
     const twoWeeksAgoDate = new Date().setDate(new Date().getDate() - 14);
     const currentDate = new Date().getTime();
-    if (date.getTime() > twoWeeksAgoDate) {
+    if (date.getTime() > twoWeeksAgoDate && date.getTime() < currentDate) {
       this.render.addClass(this.elementRef.nativeElement, 'border--green');
     }
 

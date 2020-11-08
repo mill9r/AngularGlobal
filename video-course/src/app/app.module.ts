@@ -16,6 +16,7 @@ import { MaterialModule } from "./material/material.module";
 import { FormsModule } from '@angular/forms';
 import { CreationDateDirective } from './shared/directives/creation-date.directive';
 import { MinutesToHoursPipe } from './shared/pipes/minutes-to-hours.pipe';
+import { OrderByPipe } from './shared/pipes/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MinutesToHoursPipe } from './shared/pipes/minutes-to-hours.pipe';
     MetaDataComponent,
     CreationDateDirective,
     MinutesToHoursPipe,
+    OrderByPipe,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,7 @@ import { MinutesToHoursPipe } from './shared/pipes/minutes-to-hours.pipe';
     MaterialModule,
     FormsModule,
   ],
-  providers: [MinutesToHoursPipe],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

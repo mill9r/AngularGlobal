@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseListComponent } from './course-list.component';
 
-describe('CoursesComponent', () => {
+describe('CourseListComponent', () => {
   let component: CourseListComponent;
   let fixture: ComponentFixture<CourseListComponent>;
 
@@ -16,6 +16,13 @@ describe('CoursesComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CourseListComponent);
     component = fixture.componentInstance;
+    component.courses = [{
+      courseId: 2,
+      courseTitle: 'Video Course 1. Name tag',
+      courserDescription: `Learn about`,
+      courseDuration: '1000min',
+      publication: '2020-11-28'
+    }];
     fixture.detectChanges();
   });
 

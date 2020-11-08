@@ -10,10 +10,14 @@ export class MinutesToHoursPipe implements PipeTransform {
       return value;
     }
 
-    const time = value.replace('min', '');
-    const hours = Math.floor(Number(time)/60);
-    const minutes = Number(time) % 60;
-    return `${hours}h ${minutes}min`
+    if (value.match('^[0-9]*min$')) {
+      const time = value.replace('min', '');
+      const hours = Math.floor(Number(time)/60);
+      const minutes = Number(time) % 60;
+      return `${hours}h ${minutes}min`
+    }
+
+    return value;
   }
 
 }
