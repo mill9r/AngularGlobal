@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,9 @@ import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumb
 import { CourseListComponent } from './shared/components/course-list/course-list.component';
 import { CoursePageComponent } from './course/pages/course-page/course-page.component';
 import { CourseItemComponent } from './shared/components/course-item/course-item.component';
+import { MetaDataComponent } from './shared/components/meta-data/meta-data.component';
+import {MaterialModule} from "./material/material.module";
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,12 +23,16 @@ import { CourseItemComponent } from './shared/components/course-item/course-item
     BreadcrumbsComponent,
     CourseListComponent,
     CoursePageComponent,
-    CourseItemComponent
+    CourseItemComponent,
+    MetaDataComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MaterialModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

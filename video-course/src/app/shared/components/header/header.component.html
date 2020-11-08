@@ -1,1 +1,30 @@
-<p>header works!</p>
+<div
+  class="header"
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+>
+  <div fxLayout="row">
+    <mat-icon color="primary">play_circle_outline</mat-icon>
+    <h1 class="header--title">Video course</h1>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayoutGap="1rem"
+  >
+    <a class="header-link" href="#">
+      <app-meta-data
+        [icon]="icons.vs_login"
+        [message]="'User login'"
+        [isWhite]="true"
+      ></app-meta-data>
+    </a>
+    <a class="header-link" href="#">
+      <app-meta-data
+        [icon]="icons.vs_logout"
+        [message]="'Log out'"
+        [isWhite]="true"
+      ></app-meta-data>
+    </a>
+  </div>
+
+</div>
