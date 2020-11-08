@@ -10,7 +10,7 @@ export class OrderByPipe implements PipeTransform {
     if (!value.length) {
       return value
     }
-    return null;
+    return value.slice().sort(this.sortByDate);
   }
 
   private sortByDate(first: CourseDescription,second: CourseDescription) {

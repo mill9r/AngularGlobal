@@ -1,5 +1,5 @@
 <ng-container *ngIf="courses.length; else notExist">
-  <div *ngFor="let course of courses">
+  <div *ngFor="let course of courses | orderBy">
     <app-course-item
       [headerTitle]="course.courseTitle"
       [description]="course.courserDescription"
