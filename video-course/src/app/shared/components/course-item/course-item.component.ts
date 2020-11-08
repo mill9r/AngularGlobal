@@ -14,6 +14,7 @@ export class CourseItemComponent {
   @Input() public description: string;
   @Input() public courseDuration: string;
   @Input() public publication: string;
+  @Input() public isTopRated: boolean;
 
   @Output() public deleteCourse: EventEmitter<boolean> = new EventEmitter();
   @Output() public editCourse: EventEmitter<void> = new EventEmitter();

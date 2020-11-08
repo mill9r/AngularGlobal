@@ -22,6 +22,7 @@
   </div>
   <app-course-list [courses]="courses"></app-course-list>
   <div
+    *ngIf="courses.length"
     class="load-more"
     fxLayoutAlign="center center"
   >

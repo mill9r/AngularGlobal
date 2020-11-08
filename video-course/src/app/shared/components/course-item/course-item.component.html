@@ -1,10 +1,25 @@
 <div
+  appCreationDate
+  [creationDate]="publication"
   class="course-item"
   gdAreas="title meta-data| description modify-course"
   gdGap="0.5rem"
 >
-    <h2 gdArea="title">
+    <h2
+      fxLayout="row"
+      gdArea="title"
+    >
       {{ headerTitle }}
+      <span
+        *ngIf="isTopRated"
+        fxLayoutAlign="center center"
+      >
+        <mat-icon
+          [attr.aria-label]="'top rated course'"
+        >
+          {{icons.vs_top}}
+        </mat-icon>
+      </span>
     </h2>
     <div
       gdArea="meta-data"
@@ -13,11 +28,11 @@
     >
       <app-meta-data
         [icon]="icons.vs_clock"
-        [message]="courseDuration"
+        [message]="courseDuration | minutesToHours"
       ></app-meta-data>
       <app-meta-data
         [icon]="icons.vs_calendar"
-        [message]="publication"
+        [message]="publication | date: 'mediumDate'"
       ></app-meta-data>
     </div>
     <p gdArea="description">

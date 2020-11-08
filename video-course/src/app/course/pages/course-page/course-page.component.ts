@@ -23,8 +23,9 @@ export class CoursePageComponent implements OnInit {
          about a university or college's classes. They're published both in course
          catalogs that outline degree requirements and in course schedules that
          contain descriptions for all courses offered during a particular semester.`,
-        courseDuration: '1h 20min',
-        publication: '08/28/2020'
+        courseDuration: '90min',
+        publication: '2020-08-28',
+        isCourseTopRated: true
       },
       {
         courseId: 2,
@@ -35,8 +36,8 @@ export class CoursePageComponent implements OnInit {
          about a university or college's classes. They're published both in course
          catalogs that outline degree requirements and in course schedules that
          contain descriptions for all courses offered during a particular semester.`,
-        courseDuration: '1h 20min',
-        publication: '08/28/2020'
+        courseDuration: '1000min',
+        publication: '2020-11-28'
       },
       {
         courseId: 3,
@@ -47,8 +48,8 @@ export class CoursePageComponent implements OnInit {
          about a university or college's classes. They're published both in course
          catalogs that outline degree requirements and in course schedules that
          contain descriptions for all courses offered during a particular semester.`,
-        courseDuration: '1h 20min',
-        publication: '08/28/2020'
+        courseDuration: '500min',
+        publication: '2020-11-05'
       },
     ]
   }

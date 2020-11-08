@@ -4,4 +4,5 @@ export interface CourseDescription {
   courserDescription: string;
   courseDuration: string;
   publication: string;
+  isCourseTopRated?: boolean;
 }
