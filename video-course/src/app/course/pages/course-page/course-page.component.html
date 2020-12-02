@@ -20,7 +20,10 @@
   <div fxLayoutAlign="end center">
     <button mat-raised-button color="primary">Add course</button>
   </div>
-  <app-course-list [courses]="courses"></app-course-list>
+  <app-course-list
+    [courses]="courses"
+    (deleteCourse)="deleteCourse($event)"
+  ></app-course-list>
   <div
     *ngIf="courses.length"
     class="load-more"

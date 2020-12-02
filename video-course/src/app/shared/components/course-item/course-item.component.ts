@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 
-import {icons} from "../../../material/constants/icons";
-import {Icon} from "../../models";
+import {icons} from '../../../material/constants/icons';
+import {Icon} from '../../models';
 
 @Component({
   selector: 'app-course-item',

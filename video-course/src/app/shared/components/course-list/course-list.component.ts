@@ -1,5 +1,6 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {CourseDescription} from '../../models';
+import {CourseDataService} from '../../services/course-data/course-data.service';
 
 @Component({
   selector: 'app-course-list',
@@ -8,13 +9,11 @@ import {CourseDescription} from '../../models';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseListComponent {
-  @Input() public courses: CourseDescription[]
+  @Input() public courses: CourseDescription[];
+
+  @Output() public deleteCourse: EventEmitter<any> = new EventEmitter();
 
   public editCourse(courseId: number): void {
-    console.log('Edit course:',courseId)
-  }
-
-  public deleteCourse(courseId: number): void {
-    console.log('Delete course:',courseId)
+    console.log('Edit course:', courseId);
   }
 }

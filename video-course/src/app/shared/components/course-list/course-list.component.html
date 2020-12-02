@@ -1,5 +1,7 @@
 <ng-container *ngIf="courses.length; else notExist">
-  <div *ngFor="let course of courses | orderBy">
+  <div *ngFor="let course of courses | orderBy"
+       class="course-list"
+  >
     <app-course-item
       [headerTitle]="course.courseTitle"
       [description]="course.courserDescription"
@@ -7,7 +9,7 @@
       [publication]="course.publication"
       [isTopRated]="course?.isCourseTopRated"
       (editCourse)="editCourse(course.courseId)"
-      (deleteCourse)="deleteCourse(course.courseId)"
+      (deleteCourse)="deleteCourse.emit(course.courseId)"
     ></app-course-item>
   </div>
 </ng-container>
