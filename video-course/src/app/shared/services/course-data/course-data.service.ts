@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import {CourseDescription} from '../../models';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CourseDataService {
   private courses: CourseDescription[] = [
     {

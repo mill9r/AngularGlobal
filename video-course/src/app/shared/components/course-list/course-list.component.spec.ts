@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseListComponent } from './course-list.component';
-import {OrderByPipe} from "../../pipes/order-by.pipe";
+import {OrderByPipe} from '../../pipes/order-by.pipe';
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
@@ -32,18 +32,18 @@ describe('CourseListComponent', () => {
   });
 
   it('call editCourse method', () => {
-    spyOn(component,'editCourse')
+    spyOn(component, 'editCourse')
       .and
       .callThrough();
     component.editCourse(1);
     expect(component.editCourse).toHaveBeenCalled();
   });
 
-  it('call deleteCourse method', () => {
-    spyOn(component,'deleteCourse')
-      .and
-      .callThrough();
-    component.deleteCourse(1);
-    expect(component.deleteCourse).toHaveBeenCalled();
-  });
+  // it('call deleteCourse method', () => {
+  //   spyOn(component, 'deleteCourse')
+  //     .and
+  //     .callThrough();
+  //   component.deleteCourse(1);
+  //   expect(component.deleteCourse).toHaveBeenCalled();
+  // });
 });
