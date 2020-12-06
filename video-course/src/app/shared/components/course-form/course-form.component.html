@@ -40,8 +40,16 @@
       mat-raised-button
       color="primary"
       (click)="storeForm()"
-    >Save</button>
-    <button mat-raised-button color="warn">Cancel</button>
+    >
+      Save
+    </button>
+    <a
+      mat-raised-button
+      color="warn"
+      [routerLink]="'/courses'"
+    >
+      Cancel
+    </a>
   </div>
 </form>
 

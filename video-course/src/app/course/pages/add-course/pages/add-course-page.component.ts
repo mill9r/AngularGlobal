@@ -13,8 +13,8 @@ export class AddCoursePageComponent implements OnInit {
 
   public ngOnInit(): void {
   }
-
-  public storeCourse(course: CourseDescription): void {
-    this.courseService.addCourse(course);
-  }
+  //
+  // public storeCourse(course: CourseDescription): void {
+  //   this.courseService.addCourse(course);
+  // }
 }

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
-  styleUrls: ['./breadcrumbs.component.scss']
+  styleUrls: ['./breadcrumbs.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsComponent implements OnInit {
   public breadcrumbList: string[];
