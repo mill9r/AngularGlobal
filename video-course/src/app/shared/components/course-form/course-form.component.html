@@ -1,0 +1,47 @@
+<form
+  [formGroup]="form"
+  class="add-course-form"
+  gdArea="title | description | date | duration | authors | buttons">
+  <mat-form-field gdAreas="title">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title">
+  </mat-form-field>
+  <mat-form-field gdAreas="description">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+  <div>
+    <mat-form-field
+      class="time-input"
+      gdAreas="date"
+    >
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="date">
+    </mat-form-field>
+    <div
+      gdAreas="duration"
+      fxLayout="row"
+      fxLayoutGap="1rem"
+      fxLayoutAlign="start center"
+    >
+      <mat-form-field class="time-input">
+        <mat-label>Duration</mat-label>
+        <input matInput formControlName="duration">
+      </mat-form-field>
+      <div class="duration-time">{{ durationTime | minutesToHours }}</div>
+    </div>
+  </div>
+  <mat-form-field dAreas="authors">
+    <mat-label>Authors</mat-label>
+    <input matInput formControlName="authors">
+  </mat-form-field>
+  <div gdAreas="buttons" gdGap="0 16px" gdColumns="5rem 5rem">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="storeForm()"
+    >Save</button>
+    <button mat-raised-button color="warn">Cancel</button>
+  </div>
+</form>
+

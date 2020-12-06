@@ -4,5 +4,6 @@ export interface CourseDescription {
   courserDescription: string;
   courseDuration: string;
   publication: string;
+  authors?: string[];
   isCourseTopRated?: boolean;
 }

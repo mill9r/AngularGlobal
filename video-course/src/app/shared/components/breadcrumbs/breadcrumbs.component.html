@@ -2,5 +2,7 @@
   class="breadcrumb"
   fxLayoutAlign="start center"
 >
-  <span>Courses</span>
+  <ng-template *ngFor="let breadcrumbLabel of breadcrumbList; let i = index">
+    <a [routerLink]="breadcrumbLinksList[i]">{{ breadcrumbLabel }}</a>
+  </ng-template>
 </div>

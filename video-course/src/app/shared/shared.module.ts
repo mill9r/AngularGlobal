@@ -11,6 +11,9 @@ import {OrderByPipe} from './pipes/order-by.pipe';
 import {CreationDateDirective} from './directives/creation-date.directive';
 import {MaterialModule} from '../material/material.module';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { CourseFormComponent } from './components/course-form/course-form.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MinutesToHoursPipe,
     OrderByPipe,
     CreationDateDirective,
+    CourseFormComponent,
   ],
   exports: [
     FooterComponent,
@@ -36,12 +40,18 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     CreationDateDirective,
     MaterialModule,
     FlexLayoutModule,
+    CourseFormComponent,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   imports: [
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }

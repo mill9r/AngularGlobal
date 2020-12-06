@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./breadcrumbs.component.scss']
 })
 export class BreadcrumbsComponent implements OnInit {
+  public breadcrumbList: string[];
+  public breadcrumbLinksList: string[];
 
-  constructor() { }
+  constructor(private route: Router) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.breadcrumbList = this.route.url.split('/');
+    this.breadcrumbLinksList  = [this.breadcrumbList[0]];
+
+    for (let i = 1; i < this.breadcrumbList.length; i++){
+      const link = this.breadcrumbLinksList[i - 1] + '/' + this.breadcrumbList[i];
+      this.breadcrumbLinksList.push(link);
+    }
   }
 
 }

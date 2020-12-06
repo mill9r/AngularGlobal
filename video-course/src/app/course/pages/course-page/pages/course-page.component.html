@@ -18,7 +18,7 @@
     >Search</button>
   </div>
   <div fxLayoutAlign="end center">
-    <button mat-raised-button color="primary">Add course</button>
+    <a [routerLink]="'new-course'" mat-raised-button color="primary">Add course</a>
   </div>
   <app-course-list
     [courses]="courses"
@@ -43,5 +43,6 @@
     <button mat-raised-button color="warn" mat-dialog-close>No</button>
   </div>
 </ng-template>
+<router-outlet></router-outlet>
 <app-footer></app-footer>
 
