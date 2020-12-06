@@ -25,7 +25,7 @@ export class AuthService {
 
   public logout(): void{
     localStorage.setItem(this.userKey, '');
-    this.router.navigateByUrl('/courses');
+    this.router.navigateByUrl('/');
   }
 
   public isAuthenticated(): Observable<boolean>{
