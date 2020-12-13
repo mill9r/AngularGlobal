@@ -4,35 +4,33 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumbs.component';
-import { CourseListComponent } from './shared/components/course-list/course-list.component';
-import { CoursePageComponent } from './course/pages/course-page/course-page.component';
-import { CourseItemComponent } from './shared/components/course-item/course-item.component';
-import { MetaDataComponent } from './shared/components/meta-data/meta-data.component';
-import {MaterialModule} from "./material/material.module";
+import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
+import {LoginModule} from './course/pages/auth/login/login.module';
+import { CoursePageModule } from './course/pages/course-page/course-page.module';
+import { SharedModule } from './shared/shared.module';
+import { AddCourseModule } from './course/pages/add-course/add-course.module';
+import { EditCourseModule } from './course/pages/edit-course/edit-course.module';
+import {NotFoundModule} from './course/pages/not-found/not-found.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    BreadcrumbsComponent,
-    CourseListComponent,
-    CoursePageComponent,
-    CourseItemComponent,
-    MetaDataComponent,
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
     FormsModule,
+    LoginModule,
+    CoursePageModule,
+    AddCourseModule,
+    EditCourseModule,
+    NotFoundModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

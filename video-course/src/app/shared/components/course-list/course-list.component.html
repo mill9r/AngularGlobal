@@ -1,10 +1,25 @@
-<div *ngFor="let course of courses">
-  <app-course-item
-    [headerTitle]="course.courseTitle"
-    [description]="course.courserDescription"
-    [courseDuration]="course.courseDuration"
-    [publication]="course.publication"
-    (editCourse)="editCourse(course.courseId)"
-    (deleteCourse)="deleteCourse(course.courseId)"
-  ></app-course-item>
-</div>
+<ng-container *ngIf="courses.length; else notExist">
+  <div *ngFor="let course of courses | orderBy"
+       class="course-list"
+  >
+    <app-course-item
+      [courseId]="course.courseItemId"
+      [headerTitle]="course.courseTitle"
+      [description]="course.courserDescription"
+      [courseDuration]="course.courseDuration"
+      [publication]="course.publication"
+      [isTopRated]="course?.isCourseTopRated"
+      (editCourse)="editCourse(course.courseId)"
+      (deleteCourse)="deleteCourse.emit(course.courseId)"
+    ></app-course-item>
+  </div>
+</ng-container>
+<ng-template #notExist>
+  <div
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    class="empty-list"
+  >
+    <p class="empty-list__message">{{'no data. feel free to add new course' | uppercase}}</p>
+  </div>
+</ng-template>

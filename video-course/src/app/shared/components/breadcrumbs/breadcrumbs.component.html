@@ -2,5 +2,11 @@
   class="breadcrumb"
   fxLayoutAlign="start center"
 >
-  <span>Courses</span>
+  <a
+    [routerLink]="'/courses'"
+    class="breadcrumb-item"
+  >courses</a>
+  <span>
+    > {{ courseTitle }}
+  </span>
 </div>

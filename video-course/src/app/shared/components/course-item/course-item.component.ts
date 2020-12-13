@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 
-import {icons} from "../../../material/constants/icons";
-import {Icon} from "../../models";
+import {icons} from '../../../material/constants/icons';
+import {Icon} from '../../models';
 
 @Component({
   selector: 'app-course-item',
@@ -10,13 +10,15 @@ import {Icon} from "../../models";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseItemComponent {
+  @Input() public courseId: number;
   @Input() public headerTitle: string;
   @Input() public description: string;
   @Input() public courseDuration: string;
   @Input() public publication: string;
+  @Input() public isTopRated: boolean;
 
   @Output() public deleteCourse: EventEmitter<boolean> = new EventEmitter();
-  @Output() public editCourse: EventEmitter<void> = new EventEmitter();
+  @Output() public editCourse: EventEmitter<number> = new EventEmitter();
 
   public icons: Icon = icons;
 }

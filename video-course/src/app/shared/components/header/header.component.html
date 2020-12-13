@@ -3,11 +3,12 @@
   fxLayout="row"
   fxLayoutAlign="space-between center"
 >
-  <div fxLayout="row">
+  <div fxLayout="row" fxLayoutAlign="none center">
     <mat-icon color="primary">play_circle_outline</mat-icon>
     <h1 class="header--title">Video course</h1>
   </div>
   <div
+    *ngIf="isAuthenticated | async"
     fxLayout="row"
     fxLayoutGap="1rem"
   >

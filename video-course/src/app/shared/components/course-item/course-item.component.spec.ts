@@ -3,6 +3,7 @@ import {DebugElement} from "@angular/core";
 
 import {CourseItemComponent} from './course-item.component';
 import {By} from "@angular/platform-browser";
+import {MinutesToHoursPipe} from "../../pipes/minutes-to-hours.pipe";
 
 describe('CourseItemComponent', () => {
   let component: CourseItemComponent;
@@ -10,7 +11,7 @@ describe('CourseItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CourseItemComponent]
+      declarations: [CourseItemComponent, MinutesToHoursPipe],
     })
       .compileComponents();
   }));
