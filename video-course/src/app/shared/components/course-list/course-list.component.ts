@@ -1,8 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {CourseDescription} from '../../models';
-import {CourseDataService} from '../../services/course-data/course-data.service';
 import {Router} from '@angular/router';
-import {localStorageKeys} from "../../constants/localStorageKeys";
 
 @Component({
   selector: 'app-course-list',
@@ -18,7 +16,6 @@ export class CourseListComponent {
   constructor(private route: Router) {}
 
   public editCourse(courseId: number): void {
-    this.route.navigateByUrl('courses/new-course');
-    localStorage.setItem(localStorageKeys.courseItemId, '' + courseId);
+    this.route.navigateByUrl(`courses/${courseId}`);
   }
 }

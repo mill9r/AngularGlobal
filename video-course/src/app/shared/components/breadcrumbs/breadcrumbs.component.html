@@ -2,15 +2,11 @@
   class="breadcrumb"
   fxLayoutAlign="start center"
 >
-  <span *ngFor="let breadcrumbLabel of breadcrumbList; let i = index; let last = last">
-    <span *ngIf="breadcrumbLabel">
-      <a
-        [routerLink]="breadcrumbLinksList[i]"
-        class="breadcrumb-item"
-      >
-        {{ breadcrumbLabel }}
-      </a>
-      <span *ngIf="!last">></span>
-    </span>
+  <a
+    [routerLink]="'/courses'"
+    class="breadcrumb-item"
+  >courses</a>
+  <span>
+    > {{ courseTitle }}
   </span>
 </div>

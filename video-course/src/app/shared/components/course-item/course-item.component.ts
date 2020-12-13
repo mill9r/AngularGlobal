@@ -10,6 +10,7 @@ import {Icon} from '../../models';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseItemComponent {
+  @Input() public courseId: number;
   @Input() public headerTitle: string;
   @Input() public description: string;
   @Input() public courseDuration: string;
@@ -17,7 +18,7 @@ export class CourseItemComponent {
   @Input() public isTopRated: boolean;
 
   @Output() public deleteCourse: EventEmitter<boolean> = new EventEmitter();
-  @Output() public editCourse: EventEmitter<void> = new EventEmitter();
+  @Output() public editCourse: EventEmitter<number> = new EventEmitter();
 
   public icons: Icon = icons;
 }

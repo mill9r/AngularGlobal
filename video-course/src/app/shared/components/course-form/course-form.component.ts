@@ -11,9 +11,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./course-form.component.scss']
 })
 export class CourseFormComponent implements OnInit, OnDestroy {
+  @Input() public course: CourseDescription = null;
+
   public form: FormGroup;
   public durationTime: string;
-  public course: CourseDescription = null;
 
   constructor(
     private fb: FormBuilder,
@@ -22,10 +23,10 @@ export class CourseFormComponent implements OnInit, OnDestroy {
     ) {}
 
   public ngOnInit(): void {
-    const courseId = localStorage.getItem(localStorageKeys.courseItemId);
-    if (courseId){
-      this.course = this.courseDataService.getCourseById(+courseId)[0];
-    }
+    // const courseId = localStorage.getItem(localStorageKeys.courseItemId);
+    // if (courseId){
+    //   this.course = this.courseDataService.getCourseById(+courseId)[0];
+    // }
     this.form = this.fb.group({
       title: [this.course?.courseTitle ?? ''],
       description: [this.course?.courserDescription ?? ''],

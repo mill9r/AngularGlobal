@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+import {CourseDataService} from '../../services/course-data/course-data.service';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -8,19 +9,17 @@ import {Router} from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsComponent implements OnInit {
-  public breadcrumbList: string[];
-  public breadcrumbLinksList: string[];
+  public courseTitle: string;
 
-  constructor(private route: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    private courseDataService: CourseDataService,
+  ) { }
 
   public ngOnInit(): void {
-    this.breadcrumbList = this.route.url.split('/');
-    this.breadcrumbLinksList  = [this.breadcrumbList[0]];
-
-    for (let i = 1; i < this.breadcrumbList.length; i++){
-      const link = this.breadcrumbLinksList[i - 1] + '/' + this.breadcrumbList[i];
-      this.breadcrumbLinksList.push(link);
-    }
+    this.route.params.subscribe(params => {
+      this.courseTitle = this.courseDataService.getCourseById(+params.id)[0].courseTitle;
+    });
   }
 
 }
