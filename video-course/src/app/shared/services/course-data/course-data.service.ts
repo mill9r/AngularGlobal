@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {CourseDescription} from '../../models';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,9 @@ export class CourseDataService {
       publication: '2020-11-05'
     },
   ];
+
+  public constructor(private http: HttpClient) {
+  }
 
   public getCourseList(): CourseDescription[] {
     return this.courses;
