@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { AddCourseModule } from './course/pages/add-course/add-course.module';
 import { EditCourseModule } from './course/pages/edit-course/edit-course.module';
 import {NotFoundModule} from './course/pages/not-found/not-found.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {NotFoundModule} from './course/pages/not-found/not-found.module';
     AddCourseModule,
     EditCourseModule,
     NotFoundModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
