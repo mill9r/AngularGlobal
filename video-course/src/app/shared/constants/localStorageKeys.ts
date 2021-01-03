@@ -1,3 +1,4 @@
 export const localStorageKeys = {
-  courseItemId: 'courseItemId'
+  courseItemId: 'courseItemId',
+  token: 'token',
 };
