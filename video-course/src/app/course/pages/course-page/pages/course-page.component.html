@@ -20,7 +20,10 @@
   <div fxLayoutAlign="end center">
     <button mat-raised-button color="primary">Add course</button>
   </div>
-  <app-course-list [courses]="courses"></app-course-list>
+  <app-course-list
+    [courses]="courses"
+    (deleteCourse)="openDeleteCourseDialog($event)"
+  ></app-course-list>
   <div
     *ngIf="courses.length"
     class="load-more"
@@ -33,5 +36,12 @@
     >Load more</button>
   </div>
 </div>
+<ng-template class="dialog" #modalDialog>
+  <p>Do you really want to delete the course?</p>
+  <div fxLayoutGap="1rem">
+    <button mat-raised-button color="primary" mat-dialog-close="courseWillBeDeleted">Yes</button>
+    <button mat-raised-button color="warn" mat-dialog-close>No</button>
+  </div>
+</ng-template>
 <app-footer></app-footer>
 
