@@ -12,8 +12,11 @@ import { CourseListComponent } from './shared/components/course-list/course-list
 import { CoursePageComponent } from './course/pages/course-page/course-page.component';
 import { CourseItemComponent } from './shared/components/course-item/course-item.component';
 import { MetaDataComponent } from './shared/components/meta-data/meta-data.component';
-import {MaterialModule} from "./material/material.module";
+import { MaterialModule } from "./material/material.module";
 import { FormsModule } from '@angular/forms';
+import { CreationDateDirective } from './shared/directives/creation-date.directive';
+import { MinutesToHoursPipe } from './shared/pipes/minutes-to-hours.pipe';
+import { OrderByPipe } from './shared/pipes/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { FormsModule } from '@angular/forms';
     CoursePageComponent,
     CourseItemComponent,
     MetaDataComponent,
+    CreationDateDirective,
+    MinutesToHoursPipe,
+    OrderByPipe,
   ],
   imports: [
     BrowserModule,
