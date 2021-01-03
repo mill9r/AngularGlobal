@@ -61,7 +61,6 @@ export class CourseDataService {
 
   public deleteCourse(courseId: number): void {
     this.courses = this.courses.filter( courseItem => courseItem.courseId !== courseId);
-    console.log(this.courses);
   }
 
   public getCourseById(id: number): CourseDescription[] {

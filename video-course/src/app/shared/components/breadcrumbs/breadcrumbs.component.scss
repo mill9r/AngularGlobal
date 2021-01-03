@@ -6,3 +6,16 @@
 
   background-color: white;
 }
+
+.breadcrumb-item {
+  text-decoration: none;
+}
+
+.breadcrumb-item:before {
+  content: '\00a0 ';
+}
+
+.breadcrumb-item:after {
+  content: '\00a0 ';
+}
+

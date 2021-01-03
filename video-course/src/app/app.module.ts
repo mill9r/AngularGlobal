@@ -10,10 +10,11 @@ import { FormsModule } from '@angular/forms';
 import {LoginModule} from './course/pages/auth/login/login.module';
 import {CoursePageModule} from './course/pages/course-page/course-page.module';
 import {SharedModule} from './shared/shared.module';
+import {AddCourseModule} from './course/pages/add-course/add-course.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     SharedModule,
@@ -25,6 +26,7 @@ import {SharedModule} from './shared/shared.module';
     FormsModule,
     LoginModule,
     CoursePageModule,
+    AddCourseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
