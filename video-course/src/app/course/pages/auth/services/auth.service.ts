@@ -12,8 +12,8 @@ import {localStorageKeys} from '../../../../shared/constants/localStorageKeys';
   providedIn: 'root'
 })
 export class AuthService {
-  public userInfo: BehaviorSubject<User> = new BehaviorSubject(null);
-  public isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public userInfo$: BehaviorSubject<User> = new BehaviorSubject(null);
+  public isAuthenticated$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private userKey = 'user';
   private readonly API_AUTH_LOGIN = `${environment.API_URL}/auth/login`;
   private readonly API_AUTH_USERINFO = `${environment.API_URL}/auth/userinfo`;
@@ -38,15 +38,15 @@ export class AuthService {
         mergeMap(token => this.http.post<User>(this.API_AUTH_USERINFO, {token})),
   )
       .subscribe((data) => {
-        this.userInfo.next(data);
-        this.isAuthenticated.next(true);
+        this.userInfo$.next(data);
+        this.isAuthenticated$.next(true);
         this.router.navigateByUrl('/courses');
       });
   }
 
   public logout(): void{
     this.localStorageHelper.reset(localStorageKeys.token);
-    this.isAuthenticated.next(false);
+    this.isAuthenticated$.next(false);
     this.router.navigateByUrl('/');
   }
 

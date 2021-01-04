@@ -18,7 +18,7 @@ export class BreadcrumbsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.courseTitle = this.courseDataService.getCourseById(+params.id)[0].courseTitle;
+      this.courseTitle = this.courseDataService.getCourseById(+params.id)[0]?.name;
     });
   }
 

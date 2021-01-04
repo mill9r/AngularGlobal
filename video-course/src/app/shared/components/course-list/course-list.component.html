@@ -1,16 +1,16 @@
-<ng-container *ngIf="courses.length; else notExist">
+<ng-container *ngIf="courses?.length; else notExist">
   <div *ngFor="let course of courses | orderBy"
        class="course-list"
   >
     <app-course-item
-      [courseId]="course.courseItemId"
-      [headerTitle]="course.courseTitle"
-      [description]="course.courserDescription"
-      [courseDuration]="course.courseDuration"
-      [publication]="course.publication"
-      [isTopRated]="course?.isCourseTopRated"
-      (editCourse)="editCourse(course.courseId)"
-      (deleteCourse)="deleteCourse.emit(course.courseId)"
+      [courseId]="course.id"
+      [headerTitle]="course.name"
+      [description]="course.description"
+      [courseDuration]="course.length"
+      [publication]="course.date"
+      [isTopRated]="course.isTopRated"
+      (editCourse)="editCourse(course.id)"
+      (deleteCourse)="deleteCourse.emit(course.id)"
     ></app-course-item>
   </div>
 </ng-container>

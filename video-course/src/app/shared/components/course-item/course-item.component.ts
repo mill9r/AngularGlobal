@@ -13,7 +13,7 @@ export class CourseItemComponent {
   @Input() public courseId: number;
   @Input() public headerTitle: string;
   @Input() public description: string;
-  @Input() public courseDuration: string;
+  @Input() public courseDuration: number;
   @Input() public publication: string;
   @Input() public isTopRated: boolean;
 

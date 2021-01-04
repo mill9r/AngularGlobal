@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import {CourseDescription} from '../../../../shared/models';
 import {CourseDataService} from '../../../../shared/services/course-data/course-data.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-course-page',
@@ -10,7 +11,7 @@ import {CourseDataService} from '../../../../shared/services/course-data/course-
   styleUrls: ['./course-page.component.scss']
 })
 export class CoursePageComponent implements OnInit {
-  public courses: CourseDescription[];
+  public courses$: Observable<CourseDescription[]>;
   public searchInput: string;
   public courseWillBeDeleted: number;
 
@@ -20,14 +21,16 @@ export class CoursePageComponent implements OnInit {
   constructor(
     private courseData: CourseDataService,
     private matDialog: MatDialog,
+    private courseDataService: CourseDataService,
     ) { }
 
   public ngOnInit(): void {
-    this.courses =  this.courseData.getCourseList();
+    this.courseData.getCourseList('0');
+    this.courses$ = this.courseData.courses$;
   }
 
   public executeCourseSearch(input: string): void {
-    console.log(input);
+    this.courseDataService.searchCourse(input);
   }
 
   public loadMoreCourses(): void {
@@ -40,7 +43,7 @@ export class CoursePageComponent implements OnInit {
     dialogRef.afterClosed().subscribe( value => {
       if (value) {
         this.courseData.deleteCourse(courseId);
-        this.courses = this.courseData.getCourseList();
+        // this.courses = this.courseData.getCourseList();
       }
     });
   }

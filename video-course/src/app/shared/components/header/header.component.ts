@@ -21,10 +21,9 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this.user$ = this.authService.userInfo;
+    this.user$ = this.authService.userInfo$;
 
-    this.user$.pipe(tap(data => console.log('user:', data)));
-    this.isAuthenticated$ = this.authService.isAuthenticated;
+    this.isAuthenticated$ = this.authService.isAuthenticated$;
   }
 
   public logout(): void {
