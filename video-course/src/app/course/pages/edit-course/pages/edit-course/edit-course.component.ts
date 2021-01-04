@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
   styleUrls: ['./edit-course.component.scss']
 })
 export class EditCourseComponent implements OnInit {
-  public course$: Observable<CourseDescription[]>;
+  public course$: Observable<CourseDescription>;
 
   constructor(
     private router: ActivatedRoute,
@@ -19,8 +19,7 @@ export class EditCourseComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.params.subscribe(params => {
-      this.courseDataService.getCourseById(+params.id);
-      this.course$ = this.courseDataService.courses$;
+      this.course$ = this.courseDataService.course$;
     });
   }
 

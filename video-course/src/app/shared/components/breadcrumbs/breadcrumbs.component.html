@@ -7,6 +7,6 @@
     class="breadcrumb-item"
   >courses</a>
   <span>
-    > {{ courseTitle }}
+    > {{ (course$ | async)?.name }}
   </span>
 </div>

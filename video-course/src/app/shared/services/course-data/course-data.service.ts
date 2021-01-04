@@ -3,13 +3,14 @@ import {CourseDescription} from '../../models';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {BehaviorSubject} from 'rxjs';
-import {tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseDataService {
   public courses$: BehaviorSubject<CourseDescription[]> = new BehaviorSubject<CourseDescription[]>(null);
+  public course$: BehaviorSubject<CourseDescription> = new BehaviorSubject<CourseDescription>(null);
+
   private readonly courses = `${environment.API_URL}/courses`;
 
   public constructor(private http: HttpClient) {}
@@ -46,7 +47,7 @@ export class CourseDataService {
   }
 
   public getCourseById(id: number): void {
-    this.http.get<CourseDescription[]>(`${this.courses}/${id}`)
-      .subscribe(courses => this.courses$.next(courses));
+    this.http.get<CourseDescription>(`${this.courses}/${id}`)
+      .subscribe(course => this.course$.next(course));
   }
 }

@@ -11,12 +11,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./course-form.component.scss']
 })
 export class CourseFormComponent implements OnInit, OnDestroy {
-  @Input() public course: CourseDescription[] = null;
+  @Input() public course: CourseDescription = null;
 
   public form: FormGroup;
   public durationTime: string;
-
-  private editableCourse: CourseDescription;
 
   constructor(
     private fb: FormBuilder,
@@ -25,18 +23,11 @@ export class CourseFormComponent implements OnInit, OnDestroy {
     ) {}
 
   public ngOnInit(): void {
-    if (this.course.length) {
-      this.editableCourse = this.course[0];
-    }
-    // const courseId = localStorage.getItem(localStorageKeys.courseItemId);
-    // if (courseId){
-    //   this.course = this.courseDataService.getCourseById(+courseId)[0];
-    // }
     this.form = this.fb.group({
-      title: [this.editableCourse?.name ?? ''],
-      description: [this.editableCourse?.description ?? ''],
-      date: [this.editableCourse?.date ?? ''],
-      duration: [this.editableCourse?.length ?? ''],
+      title: [this.course?.name ?? ''],
+      description: [this.course?.description ?? ''],
+      date: [this.course?.date ?? ''],
+      duration: [this.course?.length ?? ''],
       authors: ['']
     });
 
@@ -53,7 +44,7 @@ export class CourseFormComponent implements OnInit, OnDestroy {
     const length = this.form.get('duration').value;
     const course = {
       // TODO check if id is mandatpry field
-      id: this.editableCourse?.id ?? Math.round((Math.random() * 10000)),
+      id: this.course?.id ?? Math.round((Math.random() * 10000)),
       name,
       date,
       length,
@@ -66,7 +57,7 @@ export class CourseFormComponent implements OnInit, OnDestroy {
       isTopRated: false,
     };
 
-    if (this.editableCourse) {
+    if (this.course) {
       this.courseDataService.updateCourse({...course});
     }
     this.courseDataService.addCourse({...course});
