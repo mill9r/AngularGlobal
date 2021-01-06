@@ -8,18 +8,26 @@
     <h1 class="header--title">Video course</h1>
   </div>
   <div
-    *ngIf="isAuthenticated | async"
+    *ngIf="(isAuthenticated$ | async) && (user$ | async) as user"
     fxLayout="row"
     fxLayoutGap="1rem"
   >
-    <a class="header-link" href="#">
+    <a
+      class="header-link"
+      #link
+      (click)="$event.stopPropagation()"
+    >
       <app-meta-data
         [icon]="icons.vs_login"
-        [message]="'User login'"
         [isWhite]="true"
+        [message]="user.name.first"
       ></app-meta-data>
     </a>
-    <a class="header-link" href="#">
+    <a
+      class="header-link"
+      href="#"
+      (click)="logout()"
+    >
       <app-meta-data
         [icon]="icons.vs_logout"
         [message]="'Log out'"

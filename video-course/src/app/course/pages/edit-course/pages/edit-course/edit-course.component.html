@@ -1,0 +1,9 @@
+<app-header></app-header>
+<app-breadcrumbs></app-breadcrumbs>
+<div class="add-course">
+  <h2>Edit course</h2>
+  <ng-container *ngIf="(course$ | async) as course">
+    <app-course-form [course]="course"></app-course-form>
+  </ng-container>
+</div>
+

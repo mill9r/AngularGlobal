@@ -21,11 +21,11 @@
     <a [routerLink]="'new-course'" mat-raised-button color="primary">Add course</a>
   </div>
   <app-course-list
-    [courses]="courses"
+    [courses]="courses$ | async"
     (deleteCourse)="openDeleteCourseDialog($event)"
   ></app-course-list>
   <div
-    *ngIf="courses.length"
+    *ngIf="(courses$ | async)?.length"
     class="load-more"
     fxLayoutAlign="center center"
   >

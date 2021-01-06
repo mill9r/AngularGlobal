@@ -10,7 +10,7 @@ export class MetaDataComponent {
   @Input() public icon: string;
   @Input() public iconAriaDescription: string;
   @Input() public message: string;
-  @Input() public isWhite:boolean;
+  @Input() public isWhite: boolean;
 }
 
 

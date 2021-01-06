@@ -2,7 +2,7 @@ import { MinutesToHoursPipe } from './minutes-to-hours.pipe';
 
 describe('MinutesToHoursPipe', () => {
   let pipe;
-  beforeEach(()=>{
+  beforeEach(() => {
     pipe = new MinutesToHoursPipe();
   })
 
