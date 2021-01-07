@@ -10,10 +10,10 @@ import {MinutesToHoursPipe} from './pipes/minutes-to-hours.pipe';
 import {OrderByPipe} from './pipes/order-by.pipe';
 import {CreationDateDirective} from './directives/creation-date.directive';
 import {MaterialModule} from '../material/material.module';
-import {FlexLayoutModule} from "@angular/flex-layout";
+import {FlexLayoutModule} from '@angular/flex-layout';
 import { CourseFormComponent } from './components/course-form/course-form.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {RouterModule} from "@angular/router";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [

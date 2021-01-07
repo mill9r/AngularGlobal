@@ -9,7 +9,6 @@ import {Input} from "@angular/core";
 describe('CreationDateDirective', () => {
   let component: CourseItemComponent;
   let fixture: ComponentFixture<CourseItemComponent>;
-  let directive: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -23,7 +22,7 @@ describe('CreationDateDirective', () => {
     component = fixture.componentInstance;
     component.headerTitle = 'Video Course 1. Name tag';
     component.description = `Learn about`;
-    component.courseDuration = '1000min';
+    component.courseDuration = 1000;
     component.isTopRated = true;
     component.publication = '2030-11-28';
     fixture.detectChanges();

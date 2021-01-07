@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {MaterialModule} from '../../../../material/material.module';
 
 import { CoursePageComponent } from './course-page.component';
 
@@ -8,7 +11,8 @@ describe('CoursePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CoursePageComponent ]
+      declarations: [ CoursePageComponent ],
+      imports: [HttpClientTestingModule, RouterTestingModule, MaterialModule],
     })
     .compileComponents();
   }));
@@ -24,7 +28,7 @@ describe('CoursePageComponent', () => {
   });
 
   it('call executeCourseSearch method', () => {
-    spyOn(component,'executeCourseSearch')
+    spyOn(component, 'executeCourseSearch')
       .and
       .callThrough();
     component.executeCourseSearch('course1');
@@ -32,7 +36,7 @@ describe('CoursePageComponent', () => {
   });
 
   it('call loadMoreCourses method', () => {
-    spyOn(component,'loadMoreCourses')
+    spyOn(component, 'loadMoreCourses')
       .and
       .callThrough();
     component.loadMoreCourses();
