@@ -14,6 +14,7 @@ export class CoursePageComponent implements OnInit {
   public courses$: Observable<CourseDescription[]>;
   public searchInput: string;
   public courseWillBeDeleted: number;
+  private coursePage = 0;
 
   @ViewChild('modalDialog')
   public modalDialog: TemplateRef<any>;
@@ -25,7 +26,7 @@ export class CoursePageComponent implements OnInit {
     ) { }
 
   public ngOnInit(): void {
-    this.courseData.getCourseList('0');
+    this.courseData.getCourseList(`${this.coursePage}`);
     this.courses$ = this.courseData.courses$;
   }
 
@@ -34,7 +35,7 @@ export class CoursePageComponent implements OnInit {
   }
 
   public loadMoreCourses(): void {
-    console.log('loadMoreCourses');
+    this.courseData.getCourseList(`${++this.coursePage}`);
   }
 
   public openDeleteCourseDialog(courseId: number): void {
@@ -43,7 +44,6 @@ export class CoursePageComponent implements OnInit {
     dialogRef.afterClosed().subscribe( value => {
       if (value) {
         this.courseData.deleteCourse(courseId);
-        // this.courses = this.courseData.getCourseList();
       }
     });
   }
