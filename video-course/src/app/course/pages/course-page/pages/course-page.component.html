@@ -6,16 +6,11 @@
     fxLayoutGap="0.5rem"
   >
     <input
+      [formControl]="searchInput"
       class="search__input"
       type="text"
       placeholder="Type to search"
-      [(ngModel)]="searchInput"
     >
-    <button
-      mat-raised-button
-      color="accent"
-      (click)="executeCourseSearch(searchInput)"
-    >Search</button>
   </div>
   <div fxLayoutAlign="end center">
     <a [routerLink]="'new-course'" mat-raised-button color="primary">Add course</a>

@@ -1,9 +1,11 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 
 import {CourseDescription} from '../../../../shared/models';
 import {CourseDataService} from '../../../../shared/services/course-data/course-data.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-course-page',
@@ -12,7 +14,7 @@ import {Observable} from 'rxjs';
 })
 export class CoursePageComponent implements OnInit {
   public courses$: Observable<CourseDescription[]>;
-  public searchInput: string;
+  public searchInput: FormControl;
   public courseWillBeDeleted: number;
   private coursePage = 0;
 
@@ -28,10 +30,10 @@ export class CoursePageComponent implements OnInit {
   public ngOnInit(): void {
     this.courseData.getCourseList(`${this.coursePage}`);
     this.courses$ = this.courseData.courses$;
-  }
-
-  public executeCourseSearch(input: string): void {
-    this.courseDataService.searchCourse(input);
+    this.searchInput = new FormControl();
+    this.searchInput.valueChanges
+      .pipe(debounceTime(500))
+      .subscribe((data) => this.courseDataService.searchCourse(data));
   }
 
   public loadMoreCourses(): void {
