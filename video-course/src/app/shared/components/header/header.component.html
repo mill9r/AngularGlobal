@@ -8,7 +8,7 @@
     <h1 class="header--title">Video course</h1>
   </div>
   <div
-    *ngIf="(isAuthenticated$ | async) && (user$ | async) as user"
+    *ngIf="(user$ | async) as user"
     fxLayout="row"
     fxLayoutGap="1rem"
   >

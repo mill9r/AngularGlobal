@@ -1,9 +1,11 @@
-import {Component, OnInit, Input, Output, EventEmitter, OnDestroy} from '@angular/core';
+import {Component, OnInit, Input, OnDestroy} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+
 import {CourseDescription} from '../../models';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {CourseDataService} from '../../services/course-data/course-data.service';
 import {localStorageKeys} from '../../constants/localStorageKeys';
-import {Router} from '@angular/router';
+import {NavigationService} from '../../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-course-form',
@@ -14,12 +16,14 @@ export class CourseFormComponent implements OnInit, OnDestroy {
   @Input() public course: CourseDescription = null;
 
   public form: FormGroup;
-  public durationTime: string;
+  public durationTime: number;
+  public navigationUrl: string;
 
   constructor(
     private fb: FormBuilder,
     private courseDataService: CourseDataService,
     private route: Router,
+    private navigationService: NavigationService,
     ) {}
 
   public ngOnInit(): void {
@@ -35,6 +39,8 @@ export class CourseFormComponent implements OnInit, OnDestroy {
       .subscribe(data => {
         this.durationTime = data.duration;
     });
+
+    this.navigationUrl = this.navigationService.getUrl('/courses');
   }
 
   public storeForm(): void {
@@ -59,10 +65,11 @@ export class CourseFormComponent implements OnInit, OnDestroy {
 
     if (this.course) {
       this.courseDataService.updateCourse({...course});
+    } else {
+      this.courseDataService.addCourse({...course});
     }
-    this.courseDataService.addCourse({...course});
 
-    this.route.navigateByUrl('/courses');
+    this.route.navigateByUrl(this.navigationService.getUrl('/courses'));
   }
 
   public ngOnDestroy(): void {

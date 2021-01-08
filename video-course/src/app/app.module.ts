@@ -14,10 +14,12 @@ import { AddCourseModule } from './course/pages/add-course/add-course.module';
 import { EditCourseModule } from './course/pages/edit-course/edit-course.module';
 import {NotFoundModule} from './course/pages/not-found/not-found.module';
 import {HttpClientModule} from '@angular/common/http';
+import { AppLayoutComponent } from './course/pages/app-layout/app-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AppLayoutComponent,
   ],
   imports: [
     SharedModule,

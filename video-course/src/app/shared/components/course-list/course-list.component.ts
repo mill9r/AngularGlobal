@@ -1,6 +1,8 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {CourseDescription} from '../../models';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {Router} from '@angular/router';
+
+import {CourseDescription} from '../../models';
+import {NavigationService} from '../../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-course-list',
@@ -13,9 +15,12 @@ export class CourseListComponent {
 
   @Output() public deleteCourse: EventEmitter<any> = new EventEmitter();
 
-  constructor(private route: Router) {}
+  constructor(
+    private route: Router,
+    private navigationService: NavigationService,
+    ) {}
 
   public editCourse(courseId: number): void {
-    this.route.navigateByUrl(`courses/${courseId}`);
+    this.route.navigateByUrl(this.navigationService.getUrl( `/courses/${courseId}`));
   }
 }

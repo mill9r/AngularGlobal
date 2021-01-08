@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {Observable} from 'rxjs';
+
 import { CourseDescription } from '../../../../../shared/models';
 import { CourseDataService } from '../../../../../shared/services/course-data/course-data.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-edit-course',
@@ -19,8 +20,8 @@ export class EditCourseComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.params.subscribe(params => {
+      this.courseDataService.getCourseById(params.id);
       this.course$ = this.courseDataService.course$;
     });
   }
-
 }

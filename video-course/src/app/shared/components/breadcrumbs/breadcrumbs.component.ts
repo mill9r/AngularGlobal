@@ -1,9 +1,10 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {CourseDataService} from '../../services/course-data/course-data.service';
-import {filter, map, tap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+
+import {CourseDataService} from '../../services/course-data/course-data.service';
 import {CourseDescription} from '../../models';
+import {NavigationService} from '../../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -13,19 +14,18 @@ import {CourseDescription} from '../../models';
 })
 export class BreadcrumbsComponent implements OnInit {
   public course$: Observable<CourseDescription>;
+  public navigationUrl: string;
 
   constructor(
     private route: ActivatedRoute,
     private courseDataService: CourseDataService,
+    private navigationService: NavigationService,
   ) { }
 
   public ngOnInit(): void {
-    this.route.params
-      .pipe(filter(params => !!Number(params.id)))
-      .subscribe(params => {
-        this.courseDataService.getCourseById(+params.id);
-        this.course$ = this.courseDataService.course$;
-    });
+    this.course$ = this.courseDataService.course$;
+
+    this.navigationUrl = this.navigationService.getUrl('/courses');
   }
 
 }
