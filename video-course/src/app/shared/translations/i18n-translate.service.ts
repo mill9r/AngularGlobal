@@ -22,7 +22,6 @@ export class I18nTranslateService {
   }
 
   public setLanguage(language: string): void {
-    console.log(language);
     this.translateService
       .use(language)
       .pipe(first())
