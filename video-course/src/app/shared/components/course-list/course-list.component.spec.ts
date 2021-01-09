@@ -1,10 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import {MaterialModule} from '../../../material/material.module';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 
 import { CourseListComponent } from './course-list.component';
 import {OrderByPipe} from '../../pipes/order-by.pipe';
+import {MaterialModule} from '../../../material/material.module';
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
@@ -13,7 +14,8 @@ describe('CourseListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CourseListComponent, OrderByPipe ],
-      imports: [HttpClientTestingModule, RouterTestingModule, MaterialModule]
+
+      imports: [HttpClientTestingModule, RouterTestingModule, MaterialModule, TranslateModule.forRoot()]
     })
     .compileComponents();
   }));

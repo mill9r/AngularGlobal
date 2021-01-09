@@ -2,9 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 
 import {MinutesToHoursPipe} from '../../pipes/minutes-to-hours.pipe';
 import { CourseFormComponent } from './course-form.component';
+
 
 describe('CourseFormComponent', () => {
   let component: CourseFormComponent;
@@ -13,7 +15,14 @@ describe('CourseFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CourseFormComponent, MinutesToHoursPipe ],
-      imports: [FormsModule, ReactiveFormsModule, HttpClientTestingModule, RouterTestingModule],
+
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+        RouterTestingModule,
+        TranslateModule.forRoot(),
+      ],
     })
     .compileComponents();
   }));

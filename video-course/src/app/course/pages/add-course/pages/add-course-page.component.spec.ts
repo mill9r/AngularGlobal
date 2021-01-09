@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
+import {TranslateService, TranslateModule} from '@ngx-translate/core';
 
 import { AddCoursePageComponent } from './add-course-page.component';
 
@@ -10,7 +11,7 @@ describe('AddCourseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule, TranslateModule.forRoot()],
       declarations: [ AddCoursePageComponent ]
     })
     .compileComponents();

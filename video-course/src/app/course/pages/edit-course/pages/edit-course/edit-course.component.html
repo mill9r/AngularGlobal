@@ -9,7 +9,7 @@
   *ngIf="!isLoading"
   class="add-course"
 >
-  <h2>Edit course</h2>
+  <h2>{{ 'common.course.edit-course' | translate }}</h2>
   <ng-container *ngIf="(course$ | async) as course">
     <app-course-form [course]="course"></app-course-form>
   </ng-container>

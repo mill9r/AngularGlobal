@@ -5,7 +5,7 @@
   <a
     [routerLink]="navigationUrl"
     class="breadcrumb-item"
-  >courses</a>
+  >{{ 'common.course.courses' | translate }}</a>
   <span>
     > {{ (course$ | async)?.name }}
   </span>

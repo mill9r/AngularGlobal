@@ -1,0 +1,28 @@
+{
+  "common": {
+    "header": {
+      "title": "Video Course",
+      "log-out": "Log out",
+      "login": "Login",
+      "username": "Username",
+      "password": "Password",
+      "forgot-password": "Forgot password?"
+    },
+    "course": {
+      "courses": "courses",
+      "add-course": "Add course",
+      "delete-course": "Do you really want to delete the course?",
+      "load-course": "Load more",
+      "new-course": "New course",
+      "edit-course": "Edit course",
+      "page-not-found": "Page not found",
+      "copyright": "Copyright © Videocourses. All rights reserved",
+      "no-data": "no data. feel free to add new course",
+      "authors": "Authors",
+      "save": "Save",
+      "cancel": "Cancel",
+      "duration": "Duration",
+      "date": "Date"
+    }
+  }
+}

@@ -1,9 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {DebugElement} from "@angular/core";
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 
 import {CourseItemComponent} from './course-item.component';
-import {By} from "@angular/platform-browser";
-import {MinutesToHoursPipe} from "../../pipes/minutes-to-hours.pipe";
+import {MinutesToHoursPipe} from '../../pipes/minutes-to-hours.pipe';
 
 describe('CourseItemComponent', () => {
   let component: CourseItemComponent;
@@ -12,6 +11,8 @@ describe('CourseItemComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CourseItemComponent, MinutesToHoursPipe],
+      imports: [TranslateModule.forRoot()],
+
     })
       .compileComponents();
   }));

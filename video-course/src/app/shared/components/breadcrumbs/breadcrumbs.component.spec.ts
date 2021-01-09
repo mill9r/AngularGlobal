@@ -3,7 +3,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 import { BreadcrumbsComponent } from './breadcrumbs.component';
-import {CourseDataService} from "../../services/course-data/course-data.service";
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('BreadcrumbsComponent', () => {
   let component: BreadcrumbsComponent;
@@ -12,7 +12,7 @@ describe('BreadcrumbsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BreadcrumbsComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule, TranslateModule.forRoot(), ],
     })
     .compileComponents();
   }));

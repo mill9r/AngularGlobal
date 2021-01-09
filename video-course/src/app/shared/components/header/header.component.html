@@ -5,7 +5,7 @@
 >
   <div fxLayout="row" fxLayoutAlign="none center">
     <mat-icon color="primary">play_circle_outline</mat-icon>
-    <h1 class="header--title">Video course</h1>
+    <h1 class="header--title">{{ 'common.header.title' | translate }}</h1>
   </div>
   <div
     *ngIf="(user$ | async) as user"
@@ -35,5 +35,13 @@
       ></app-meta-data>
     </a>
   </div>
+  <select
+    required
+    (ngModelChange)="selectChange($event)"
+    [(ngModel)]="selectedValue"
+  >
+    <option value="en">En</option>
+    <option value="ru">Ru</option>
+  </select>
 
 </div>

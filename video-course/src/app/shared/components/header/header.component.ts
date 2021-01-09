@@ -5,6 +5,7 @@ import {Icon, User} from '../../models';
 import { icons } from 'src/app/material/constants/icons';
 import {AuthService} from '../../../course/pages/auth/services/auth.service';
 import {UserInfoService} from '../../services/user-info/user-info.service';
+import {I18nTranslateService} from "../../translations/i18n-translate.service";
 
 @Component({
   selector: 'app-header',
@@ -14,10 +15,12 @@ import {UserInfoService} from '../../services/user-info/user-info.service';
 export class HeaderComponent implements OnInit {
   public icons: Icon = icons;
   public user$: Observable<User>;
+  public selectedValue: any;
 
   constructor(
     private authService: AuthService,
     private userInfo: UserInfoService,
+    private i18nTranslateService: I18nTranslateService
   ) { }
 
   public ngOnInit(): void {
@@ -28,4 +31,7 @@ export class HeaderComponent implements OnInit {
     this.authService.logout();
   }
 
+  public selectChange(value: any): void {
+    this.i18nTranslateService.setLanguage(value);
+  }
 }

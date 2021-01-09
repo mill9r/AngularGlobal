@@ -22,7 +22,9 @@
     >
   </div>
   <div fxLayoutAlign="end center">
-    <a [routerLink]="'new-course'" mat-raised-button color="primary">Add course</a>
+    <a [routerLink]="'new-course'" mat-raised-button color="primary">
+      {{ 'common.course.add-course' | translate }}
+    </a>
   </div>
   <app-course-list
     [courses]="courses$ | async"
@@ -37,11 +39,13 @@
       mat-button
       class="load-more__button"
       (click)="loadMoreCourses()"
-    >Load more</button>
+    >
+      {{ 'common.course.load-course' | translate }}
+    </button>
   </div>
 </div>
 <ng-template class="dialog" #modalDialog>
-  <p>Do you really want to delete the course?</p>
+  <p>{{ 'common.course.delete-course' | translate }}</p>
   <div fxLayoutGap="1rem">
     <button mat-raised-button color="primary" mat-dialog-close="courseWillBeDeleted">Yes</button>
     <button mat-raised-button color="warn" mat-dialog-close>No</button>
