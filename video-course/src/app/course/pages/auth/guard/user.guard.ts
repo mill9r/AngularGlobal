@@ -21,10 +21,7 @@ export class UserGuard implements CanActivate {
      return this.userInfoService.userInfo$
        .pipe(
          filter(user => !!user),
-         map(user => {
-           console.log('guard',user)
-           return !!user
-         })
+         map(user => !!user)
        );
   }
 

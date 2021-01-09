@@ -1,4 +1,15 @@
-<div class="course-page">
+<div
+  *ngIf="isLoading"
+  fxFlex="0 0 100%"
+  fxLayoutAlign="center center"
+>
+  <mat-spinner></mat-spinner>
+</div>
+
+<div
+  *ngIf="!isLoading"
+  class="course-page"
+>
   <div
     class="search"
     fxLayoutGap="0.5rem"

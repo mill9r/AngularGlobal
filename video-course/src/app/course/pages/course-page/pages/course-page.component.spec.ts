@@ -27,14 +27,6 @@ describe('CoursePageComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('call executeCourseSearch method', () => {
-    spyOn(component, 'executeCourseSearch')
-      .and
-      .callThrough();
-    component.executeCourseSearch('course1');
-    expect(component.executeCourseSearch).toHaveBeenCalled();
-  });
-
   it('call loadMoreCourses method', () => {
     spyOn(component, 'loadMoreCourses')
       .and

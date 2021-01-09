@@ -6,6 +6,7 @@ import {debounceTime} from 'rxjs/operators';
 
 import {CourseDescription} from '../../../../shared/models';
 import {CourseDataService} from '../../../../shared/services/course-data/course-data.service';
+import {SpinnerService} from '../../../../shared/services/spinner/spinner.service';
 
 @Component({
   selector: 'app-course-page',
@@ -16,6 +17,8 @@ export class CoursePageComponent implements OnInit {
   public courses$: Observable<CourseDescription[]>;
   public searchInput: FormControl;
   public courseWillBeDeleted: number;
+  public isLoading: boolean;
+
   private coursePage = 0;
 
   @ViewChild('modalDialog')
@@ -25,9 +28,11 @@ export class CoursePageComponent implements OnInit {
     private courseData: CourseDataService,
     private matDialog: MatDialog,
     private courseDataService: CourseDataService,
+    private spinnerService: SpinnerService,
     ) { }
 
   public ngOnInit(): void {
+    this.isLoading = this.spinnerService.loading;
     this.courseData.getCourseList(`${this.coursePage}`);
     this.courses$ = this.courseData.courses$;
     this.searchInput = new FormControl();
