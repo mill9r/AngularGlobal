@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {Observable} from 'rxjs';
 
-import {Icon} from '../../models';
+import {Icon, User} from '../../models';
 import { icons } from 'src/app/material/constants/icons';
 import {AuthService} from '../../../course/pages/auth/services/auth.service';
-import {Observable} from 'rxjs';
+import {UserInfoService} from '../../services/user-info/user-info.service';
 
 @Component({
   selector: 'app-header',
@@ -12,13 +13,19 @@ import {Observable} from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   public icons: Icon = icons;
-  public isAuthenticated: Observable<boolean>;
+  public user$: Observable<User>;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private userInfo: UserInfoService,
+  ) { }
 
   public ngOnInit(): void {
-    this.isAuthenticated = this.authService.isAuthenticated();
-    console.log(this.isAuthenticated);
+    this.user$ = this.userInfo.userInfo$;
+  }
+
+  public logout(): void {
+    this.authService.logout();
   }
 
 }

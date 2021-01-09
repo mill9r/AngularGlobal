@@ -1,6 +1,14 @@
-<app-header></app-header>
-<app-breadcrumbs></app-breadcrumbs>
-<div class="add-course">
+<div
+  *ngIf="isLoading"
+  fxFlex="0 0 100%"
+  fxLayoutAlign="center center"
+>
+  <mat-spinner></mat-spinner>
+</div>
+<div
+  *ngIf="!isLoading"
+  class="add-course"
+>
   <h2>New course</h2>
   <app-course-form></app-course-form>
 </div>
