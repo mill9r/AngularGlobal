@@ -15,7 +15,7 @@ export class NavigationService {
 
     return ''.concat(...[
       '/user/',
-      `${this.userInfo.userInfo$.getValue().id}`,
+      `${this.userInfo.userInfo$.getValue()?.id}`,
       ...convertSegment,
     ]);
   }

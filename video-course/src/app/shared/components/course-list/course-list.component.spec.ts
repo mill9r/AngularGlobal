@@ -35,13 +35,13 @@ describe('CourseListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('call editCourse method', () => {
-    spyOn(component, 'editCourse')
-      .and
-      .callThrough();
-    component.editCourse(1);
-    expect(component.editCourse).toHaveBeenCalled();
-  });
+  // it('call editCourse method', () => {
+  //   spyOn(component, 'editCourse')
+  //     .and
+  //     .callThrough();
+  //   component.editCourse(1);
+  //   expect(component.editCourse).toHaveBeenCalled();
+  // });
 
   // it('call deleteCourse method', () => {
   //   spyOn(component, 'deleteCourse')

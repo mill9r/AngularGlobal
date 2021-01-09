@@ -3,6 +3,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 import { BreadcrumbsComponent } from './breadcrumbs.component';
+import {CourseDataService} from "../../services/course-data/course-data.service";
 
 describe('BreadcrumbsComponent', () => {
   let component: BreadcrumbsComponent;

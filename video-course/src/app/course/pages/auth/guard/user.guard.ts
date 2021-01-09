@@ -12,8 +12,7 @@ export class UserGuard implements CanActivate {
 
   constructor(
     private userInfoService: UserInfoService,
-    ) {
-  }
+    ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,

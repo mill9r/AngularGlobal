@@ -21,6 +21,13 @@ describe('CourseFormComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CourseFormComponent);
     component = fixture.componentInstance;
+    component.course = {
+      id: 2,
+      name: 'Video Course 1. Name tag',
+      description: `Learn about`,
+      length: 1000,
+      date: '2020-11-28'
+    };
     fixture.detectChanges();
   });
 
