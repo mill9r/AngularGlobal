@@ -10,10 +10,13 @@ import {MinutesToHoursPipe} from './pipes/minutes-to-hours.pipe';
 import {OrderByPipe} from './pipes/order-by.pipe';
 import {CreationDateDirective} from './directives/creation-date.directive';
 import {MaterialModule} from '../material/material.module';
-import {FlexLayoutModule} from "@angular/flex-layout";
+import {FlexLayoutModule} from '@angular/flex-layout';
 import { CourseFormComponent } from './components/course-form/course-form.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {RouterModule} from "@angular/router";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {HttpClient} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,14 @@ import {RouterModule} from "@angular/router";
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule.forRoot(
+      {
+        loader: {
+          provide: TranslateLoader,
+          useFactory: (http) => new TranslateHttpLoader(http, './assets/translations/', '.json'),
+          deps: [HttpClient],
+        },
+      }),
   ]
 })
 export class SharedModule { }

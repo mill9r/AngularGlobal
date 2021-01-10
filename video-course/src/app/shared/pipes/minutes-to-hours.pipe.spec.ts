@@ -2,16 +2,16 @@ import { MinutesToHoursPipe } from './minutes-to-hours.pipe';
 
 describe('MinutesToHoursPipe', () => {
   let pipe;
-  beforeEach(()=>{
+  beforeEach(() => {
     pipe = new MinutesToHoursPipe();
-  })
+  });
 
   it('create an instance', () => {
     expect(pipe).toBeTruthy();
   });
 
   it('should show transform min to hours and minutes', () => {
-    expect(pipe.transform('90min')).toBe('1h 30min');
+    expect(pipe.transform(90)).toBe('1h 30min');
   });
 
   it('should return empty string', () => {
@@ -19,7 +19,7 @@ describe('MinutesToHoursPipe', () => {
   });
 
   it('should show transform number to hours and minutes', () => {
-    expect(pipe.transform('120')).toBe('120');
+    expect(pipe.transform(120)).toBe('2h 0min');
   });
 
   it('should show return string when data does not follow time regex', () => {
