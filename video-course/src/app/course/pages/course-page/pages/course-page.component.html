@@ -1,31 +1,35 @@
-<app-header></app-header>
-<app-breadcrumbs></app-breadcrumbs>
-<div class="course-page">
+<div
+  *ngIf="isLoading"
+  fxFlex="0 0 100%"
+  fxLayoutAlign="center center"
+>
+  <mat-spinner></mat-spinner>
+</div>
+
+<div
+  *ngIf="!isLoading"
+  class="course-page"
+>
   <div
     class="search"
     fxLayoutGap="0.5rem"
   >
     <input
+      [formControl]="searchInput"
       class="search__input"
       type="text"
       placeholder="Type to search"
-      [(ngModel)]="searchInput"
     >
-    <button
-      mat-raised-button
-      color="accent"
-      (click)="executeCourseSearch(searchInput)"
-    >Search</button>
   </div>
   <div fxLayoutAlign="end center">
-    <a [routerLink]="'new-course'" mat-raised-button color="primary">Add course</a>
+    <a [routerLink]="'new-course'" mat-raised-button color="primary" [translate]="'common.course.add-course'"></a>
   </div>
   <app-course-list
-    [courses]="courses"
+    [courses]="courses$ | async"
     (deleteCourse)="openDeleteCourseDialog($event)"
   ></app-course-list>
   <div
-    *ngIf="courses.length"
+    *ngIf="(courses$ | async)?.length"
     class="load-more"
     fxLayoutAlign="center center"
   >
@@ -33,11 +37,13 @@
       mat-button
       class="load-more__button"
       (click)="loadMoreCourses()"
-    >Load more</button>
+    >
+      {{ 'common.course.load-course' | translate }}
+    </button>
   </div>
 </div>
 <ng-template class="dialog" #modalDialog>
-  <p>Do you really want to delete the course?</p>
+  <p>{{ 'common.course.delete-course' | translate }}</p>
   <div fxLayoutGap="1rem">
     <button mat-raised-button color="primary" mat-dialog-close="courseWillBeDeleted">Yes</button>
     <button mat-raised-button color="warn" mat-dialog-close>No</button>

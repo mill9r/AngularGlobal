@@ -1,15 +1,13 @@
 import {CreationDateDirective} from './creation-date.directive';
-import {ComponentFixture, TestBed} from "@angular/core/testing";
-
-import {MinutesToHoursPipe} from "../pipes/minutes-to-hours.pipe";
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import {CourseItemComponent} from "../components/course-item/course-item.component";
-import {Input} from "@angular/core";
+
+import {MinutesToHoursPipe} from '../pipes/minutes-to-hours.pipe';
+import {CourseItemComponent} from '../components/course-item/course-item.component';
 
 describe('CreationDateDirective', () => {
   let component: CourseItemComponent;
   let fixture: ComponentFixture<CourseItemComponent>;
-  let directive: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -23,7 +21,7 @@ describe('CreationDateDirective', () => {
     component = fixture.componentInstance;
     component.headerTitle = 'Video Course 1. Name tag';
     component.description = `Learn about`;
-    component.courseDuration = '1000min';
+    component.courseDuration = 1000;
     component.isTopRated = true;
     component.publication = '2030-11-28';
     fixture.detectChanges();
@@ -36,5 +34,5 @@ describe('CreationDateDirective', () => {
   it('should change color to blue', () => {
     const appliedCssClass = fixture.debugElement.query(By.css('.border--blue'));
     expect(appliedCssClass.classes['border--blue']).toBeTruthy();
-  })
+  });
 });

@@ -1,5 +1,15 @@
-export interface User {
+export interface UserInfo {
   id: number;
-  firstName: string;
-  lastName: string;
+  token: string;
+  name: {
+    first: string,
+    last: string
+  };
+  login: string;
+  password: string;
+}
+
+
+export interface UserLogin {
+  token: string;
 }
