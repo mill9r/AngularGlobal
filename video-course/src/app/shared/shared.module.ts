@@ -46,7 +46,6 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     CourseFormComponent,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule.forRoot(),
   ],
   providers: [],
   imports: [
