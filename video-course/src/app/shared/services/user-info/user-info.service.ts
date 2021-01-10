@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 
-import {User} from '../../models';
+import {UserInfo} from '../../models';
 import {environment} from '../../../../environments/environment';
 import {LocalstorageHelperService} from '../localstorage-helper/localstorage-helper.service';
 import {localStorageKeys} from '../../constants/localStorageKeys';
@@ -11,7 +11,7 @@ import {localStorageKeys} from '../../constants/localStorageKeys';
   providedIn: 'root'
 })
 export class UserInfoService {
-  public userInfo$: BehaviorSubject<User> = new BehaviorSubject(null);
+  public userInfo$: BehaviorSubject<UserInfo> = new BehaviorSubject(null);
 
   private readonly API_AUTH_USERINFO = `${environment.API_URL}/auth/userinfo`;
 
@@ -25,8 +25,8 @@ export class UserInfoService {
     }
   }
 
-  public getUserInfo(token: string): Observable<User> {
-    return this.http.post<User>(
+  public getUserInfo(token: string): Observable<UserInfo> {
+    return this.http.post<UserInfo>(
       this.API_AUTH_USERINFO,
       {token}
       );

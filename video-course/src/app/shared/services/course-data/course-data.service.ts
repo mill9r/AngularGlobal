@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {CourseDescription} from '../../models';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +16,9 @@ export class CourseDataService {
 
   public constructor(private http: HttpClient) {}
 
-  public getCourseList(start: string = '0', textFragment: string = '', sort: string = ''): void {
-    this.http.get<CourseDescription[]>(`${this.coursesUrl}?start=${start}&count=${this.count}`)
-      .subscribe(courses => this.courses$.next(courses));
+  public getCourseList(start: string = '0', textFragment: string = '', sort: string = ''): Observable<CourseDescription[]> {
+    return this.http.get<CourseDescription[]>(`${this.coursesUrl}?start=${start}&count=${this.count}`);
+      // .subscribe(courses => this.courses$.next(courses));
   }
 
   public addCourse(course: CourseDescription): void {

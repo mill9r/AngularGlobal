@@ -4,7 +4,7 @@
   class="login-wrapper"
 >
   <mat-card>
-    <mat-card-title>{{ 'common.header.login' | translate }}</mat-card-title>
+    <mat-card-title [translate]="'common.header.login'"></mat-card-title>
     <mat-card-content>
       <form [formGroup]="form" novalidate (ngSubmit)="submit()">
         <p>
@@ -23,8 +23,8 @@
           class="button"
           fxLayoutAlign="space-between center"
         >
-          <a href="#">{{ 'common.header.forgot-password' | translate }}</a>
-          <button type="submit" mat-raised-button color="accent" >{{ 'common.header.login' | translate }}</button>
+          <a href="#" [translate]="'common.header.forgot-password'"></a>
+          <button type="submit" mat-raised-button color="accent">{{ 'common.header.login' | translate }}</button>
         </div>
 
       </form>

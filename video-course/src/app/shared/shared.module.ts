@@ -1,5 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {TranslateModule} from '@ngx-translate/core';
+import {EffectsModule} from '@ngrx/effects';
+import {FlexLayoutModule} from '@angular/flex-layout';
+
 import {FooterComponent} from './components/footer/footer.component';
 import {BreadcrumbsComponent} from './components/breadcrumbs/breadcrumbs.component';
 import {CourseItemComponent} from './components/course-item/course-item.component';
@@ -10,13 +16,8 @@ import {MinutesToHoursPipe} from './pipes/minutes-to-hours.pipe';
 import {OrderByPipe} from './pipes/order-by.pipe';
 import {CreationDateDirective} from './directives/creation-date.directive';
 import {MaterialModule} from '../material/material.module';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import { CourseFormComponent } from './components/course-form/course-form.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {HttpClient} from '@angular/common/http';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {CourseFormComponent} from './components/course-form/course-form.component';
+import {CoursesEffects} from '../effects/courses.effects';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     CourseFormComponent,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule.forRoot(),
+    TranslateModule,
   ],
   providers: [],
   imports: [
@@ -56,14 +57,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    TranslateModule.forRoot(
-      {
-        loader: {
-          provide: TranslateLoader,
-          useFactory: (http) => new TranslateHttpLoader(http, './assets/translations/', '.json'),
-          deps: [HttpClient],
-        },
-      }),
+    TranslateModule,
+    EffectsModule.forRoot([CoursesEffects]),
   ]
 })
 export class SharedModule { }

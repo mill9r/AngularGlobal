@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
 import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {map, mergeMap} from 'rxjs/operators';
 
 import {environment} from '../../../../../environments/environment';
-import {User, UserLogin} from '../../../../shared/models';
+import {UserLogin} from '../../../../shared/models';
 import {LocalstorageHelperService} from '../../../../shared/services/localstorage-helper/localstorage-helper.service';
 import {localStorageKeys} from '../../../../shared/constants/localStorageKeys';
-import {NavigationService} from '../../../../shared/services/navigation/navigation.service';
 import {UserInfoService} from '../../../../shared/services/user-info/user-info.service';
 
 @Injectable({

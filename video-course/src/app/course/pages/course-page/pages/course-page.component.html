@@ -22,9 +22,7 @@
     >
   </div>
   <div fxLayoutAlign="end center">
-    <a [routerLink]="'new-course'" mat-raised-button color="primary">
-      {{ 'common.course.add-course' | translate }}
-    </a>
+    <a [routerLink]="'new-course'" mat-raised-button color="primary" [translate]="'common.course.add-course'"></a>
   </div>
   <app-course-list
     [courses]="courses$ | async"

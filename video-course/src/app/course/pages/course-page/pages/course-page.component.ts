@@ -7,6 +7,8 @@ import {debounceTime} from 'rxjs/operators';
 import {CourseDescription} from '../../../../shared/models';
 import {CourseDataService} from '../../../../shared/services/course-data/course-data.service';
 import {SpinnerService} from '../../../../shared/services/spinner/spinner.service';
+import { Store, select } from '@ngrx/store';
+import {AppState, selectCourses} from 'src/app/reducers';
 
 @Component({
   selector: 'app-course-page',
@@ -29,12 +31,12 @@ export class CoursePageComponent implements OnInit {
     private matDialog: MatDialog,
     private courseDataService: CourseDataService,
     private spinnerService: SpinnerService,
+    private store: Store<AppState>
     ) { }
 
   public ngOnInit(): void {
     this.isLoading = this.spinnerService.loading;
-    this.courseData.getCourseList(`${this.coursePage}`);
-    this.courses$ = this.courseData.courses$;
+    this.courses$ = this.store.pipe(select(selectCourses));
     this.searchInput = new FormControl();
     this.searchInput.valueChanges
       .pipe(debounceTime(500))
