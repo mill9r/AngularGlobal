@@ -1,9 +1,16 @@
 export interface CourseDescription {
-  courseId: number;
-  courseTitle: string;
-  courserDescription: string;
-  courseDuration: string;
-  publication: string;
-  authors?: string[];
-  isCourseTopRated?: boolean;
+  id?: number;
+  name: string;
+  date: string;
+  length: number;
+  description: string;
+  authors?: Authors[];
+  isTopRated?: boolean;
 }
+
+export interface Authors {
+  id: number;
+  name: string;
+  lastName?: string;
+}
+

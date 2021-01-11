@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CourseDataService} from '../../../../shared/services/course-data/course-data.service';
-import {CourseDescription} from '../../../../shared/models';
+
+import {SpinnerService} from '../../../../shared/services/spinner/spinner.service';
 
 @Component({
   selector: 'app-add-course',
@@ -8,13 +8,12 @@ import {CourseDescription} from '../../../../shared/models';
   styleUrls: ['./add-course-page.component.scss']
 })
 export class AddCoursePageComponent implements OnInit {
+  public isLoading: boolean;
 
-  constructor(private courseService: CourseDataService) { }
+  constructor(    private spinnerService: SpinnerService,
+  ) { }
 
   public ngOnInit(): void {
+    this.isLoading = this.spinnerService.loading;
   }
-  //
-  // public storeCourse(course: CourseDescription): void {
-  //   this.courseService.addCourse(course);
-  // }
 }
