@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 
 import {CourseDescription} from '../../models';
@@ -28,7 +28,7 @@ export class CourseFormComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.form = this.fb.group({
-      title: [this.course?.name ?? ''],
+      title: [this.course?.name ?? '', Validators.required],
       description: [this.course?.description ?? ''],
       date: [this.course?.date ?? ''],
       duration: [this.course?.length ?? ''],
